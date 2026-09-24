@@ -12,4 +12,4 @@ from goatseo.flask import SEOExtension, get_seo
 SEOExtension(app)
 ```
 
-Part of [GoatSEO](https://github.com/midsonlajeanty/goatseo). See the [documentation](https://github.com/midsonlajeanty/goatseo/tree/main/docs).
+Part of [GoatSEO](https://github.com/midsonlajeanty/goatseo). See the [documentation](https://midsonlajeanty.github.io/goatseo/).

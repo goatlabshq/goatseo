@@ -12,4 +12,4 @@ from goatseo.twitter import TwitterCard, TwitterCardType, twitter_elements
 card = TwitterCard(card=TwitterCardType.SUMMARY_LARGE_IMAGE, title="Hello")
 ```
 
-Part of [GoatSEO](https://github.com/midsonlajeanty/goatseo). See the [documentation](https://github.com/midsonlajeanty/goatseo/tree/main/docs).
+Part of [GoatSEO](https://github.com/midsonlajeanty/goatseo). See the [documentation](https://midsonlajeanty.github.io/goatseo/).

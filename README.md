@@ -135,7 +135,7 @@ The core packages never import a web framework.
 
 ## Documentation
 
-The [documentation](docs/index.md) covers concepts, every package, the Schema.org generator,
+The [documentation](https://midsonlajeanty.github.io/goatseo/) covers concepts, every package, the Schema.org generator,
 security, type safety, performance and the architecture. Build it locally with
 `uv run --group docs mkdocs serve`.
 

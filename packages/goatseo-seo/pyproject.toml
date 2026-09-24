@@ -26,7 +26,7 @@ dependencies = [
 
 [project.urls]
 Homepage = "https://github.com/midsonlajeanty/goatseo"
-Documentation = "https://github.com/midsonlajeanty/goatseo/tree/main/docs"
+Documentation = "https://midsonlajeanty.github.io/goatseo/"
 Issues = "https://github.com/midsonlajeanty/goatseo/issues"
 
 [build-system]
