@@ -1,0 +1,45 @@
+[project]
+name = "goatseo"
+version = "0.1.0" # x-release-please-version
+description = "The type-safe SEO toolkit for Python."
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [{ name = "Louis Midson LAJEANTY", email = "midsonlajeanty@proton.me" }]
+requires-python = ">=3.14"
+keywords = ["seo", "schema.org", "json-ld", "opengraph", "twitter-cards", "metadata"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.14",
+    "Topic :: Internet :: WWW/HTTP :: Dynamic Content",
+    "Typing :: Typed",
+]
+dependencies = [
+    "goatseo-seo==0.1.0", # x-release-please-version
+]
+
+[project.optional-dependencies]
+django = ["goatseo-django==0.1.0"] # x-release-please-version
+fastapi = ["goatseo-fastapi==0.1.0"] # x-release-please-version
+flask = ["goatseo-flask==0.1.0"] # x-release-please-version
+
+[project.urls]
+Homepage = "https://github.com/midsonlajeanty/goatseo"
+Documentation = "https://github.com/midsonlajeanty/goatseo/tree/main/docs"
+Issues = "https://github.com/midsonlajeanty/goatseo/issues"
+
+[build-system]
+requires = ["uv_build>=0.12,<0.13"]
+build-backend = "uv_build"
+
+[tool.uv.build-backend]
+module-name = "goatseo"
+
+[tool.uv.sources]
+goatseo-seo = { workspace = true }
+goatseo-django = { workspace = true }
+goatseo-fastapi = { workspace = true }
+goatseo-flask = { workspace = true }
