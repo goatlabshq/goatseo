@@ -1,0 +1,68 @@
+site_name: GoatSEO
+site_description: The type-safe SEO toolkit for Python.
+repo_url: https://github.com/midsonlajeanty/goatseo
+repo_name: midsonlajeanty/goatseo
+edit_uri: edit/main/docs/
+strict: true
+
+theme:
+  name: material
+  features:
+    - content.code.copy
+    - content.tabs.link
+    - navigation.sections
+    - navigation.top
+    - search.suggest
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - def_list
+  - toc:
+      permalink: true
+  - pymdownx.details
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+
+nav:
+  - Introduction: index.md
+  - Getting started:
+      - Installation: getting-started/installation.md
+      - Quickstart: getting-started/quickstart.md
+  - Guide:
+      - Core concepts: guide/concepts.md
+      - SEO builder: guide/seo.md
+      - Open Graph: guide/opengraph.md
+      - Twitter Cards: guide/twitter.md
+      - Schema.org: guide/schema-org.md
+      - JSON-LD: guide/json-ld.md
+      - Configuration: guide/configuration.md
+      - Customization: guide/customization.md
+  - Integrations:
+      - Django: integrations/django.md
+      - FastAPI: integrations/fastapi.md
+      - Flask: integrations/flask.md
+  - Topics:
+      - Security: topics/security.md
+      - Type safety: topics/type-safety.md
+      - Performance: topics/performance.md
+      - Schema generator: topics/schema-generator.md
+  - Reference:
+      - API reference: reference/api.md
+      - Architecture: reference/architecture.md
+      - Contributing: reference/contributing.md
