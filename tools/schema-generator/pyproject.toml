@@ -1,0 +1,17 @@
+[project]
+name = "goatseo-schema-generator"
+version = "0.1.0"
+description = "Development tool that generates the GoatSEO Schema.org models from the official ontology."
+readme = "README.md"
+license = "MIT"
+authors = [{ name = "Louis Midson LAJEANTY", email = "midsonlajeanty@proton.me" }]
+requires-python = ">=3.14"
+classifiers = ["Private :: Do Not Upload"]
+dependencies = ["ruff>=0.13"]
+
+[project.scripts]
+goatseo-schema = "goatseo_schema_generator.cli:main"
+
+[build-system]
+requires = ["uv_build>=0.12,<0.13"]
+build-backend = "uv_build"
