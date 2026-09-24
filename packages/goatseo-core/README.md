@@ -12,4 +12,4 @@ from goatseo.core import Metadata, metadata_elements, render_elements
 html = render_elements(metadata_elements(Metadata(title="Hello")))
 ```
 
-Part of [GoatSEO](https://github.com/midsonlajeanty/goatseo). See the [documentation](https://midsonlajeanty.github.io/goatseo/).
+Part of [GoatSEO](https://github.com/goatlabshq/goatseo). See the [documentation](https://goatlabshq.github.io/goatseo/).

@@ -12,4 +12,4 @@ from goatseo.opengraph import OpenGraph, open_graph_elements
 elements = list(open_graph_elements(OpenGraph(title="Hello", type="article")))
 ```
 
-Part of [GoatSEO](https://github.com/midsonlajeanty/goatseo). See the [documentation](https://midsonlajeanty.github.io/goatseo/).
+Part of [GoatSEO](https://github.com/goatlabshq/goatseo). See the [documentation](https://goatlabshq.github.io/goatseo/).

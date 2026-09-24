@@ -1,8 +1,8 @@
 site_name: GoatSEO
 site_description: The type-safe SEO toolkit for Python.
-repo_url: https://github.com/midsonlajeanty/goatseo
-site_url: https://midsonlajeanty.github.io/goatseo/
-repo_name: midsonlajeanty/goatseo
+repo_url: https://github.com/goatlabshq/goatseo
+site_url: https://goatlabshq.github.io/goatseo/
+repo_name: goatlabshq/goatseo
 edit_uri: edit/main/docs/
 strict: true
 

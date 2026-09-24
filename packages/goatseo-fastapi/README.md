@@ -14,4 +14,4 @@ from goatseo.fastapi import SEO, GoatSEO
 SEODep = Annotated[SEO, Depends(GoatSEO())]
 ```
 
-Part of [GoatSEO](https://github.com/midsonlajeanty/goatseo). See the [documentation](https://midsonlajeanty.github.io/goatseo/).
+Part of [GoatSEO](https://github.com/goatlabshq/goatseo). See the [documentation](https://goatlabshq.github.io/goatseo/).

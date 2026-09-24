@@ -5,7 +5,7 @@
 GoatSEO is a [uv](https://docs.astral.sh/uv/) workspace. Python 3.14 is required.
 
 ```bash
-git clone https://github.com/midsonlajeanty/goatseo.git
+git clone https://github.com/goatlabshq/goatseo.git
 cd goatseo
 uv sync
 uv run lefthook install

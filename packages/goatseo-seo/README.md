@@ -12,4 +12,4 @@ from goatseo.seo import SEO
 SEO(title="Hello").robots(index=False).render()
 ```
 
-Part of [GoatSEO](https://github.com/midsonlajeanty/goatseo). See the [documentation](https://midsonlajeanty.github.io/goatseo/).
+Part of [GoatSEO](https://github.com/goatlabshq/goatseo). See the [documentation](https://goatlabshq.github.io/goatseo/).
