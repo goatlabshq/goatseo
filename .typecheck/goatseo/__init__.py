@@ -1,0 +1,1 @@
+../../packages/goatseo/src/goatseo/__init__.py
