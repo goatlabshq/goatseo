@@ -1,0 +1,93 @@
+[project]
+name = "goatseo-workspace"
+version = "0.1.0"
+description = "Development workspace for the GoatSEO packages."
+readme = "README.md"
+license = "MIT"
+authors = [{ name = "Louis Midson LAJEANTY", email = "midsonlajeanty@proton.me" }]
+requires-python = ">=3.14"
+dependencies = []
+
+[dependency-groups]
+dev = [
+    "goatseo",
+    "goatseo-core",
+    "goatseo-schema",
+    "goatseo-opengraph",
+    "goatseo-twitter",
+    "goatseo-seo",
+    "goatseo-django",
+    "goatseo-fastapi",
+    "goatseo-flask",
+    "goatseo-schema-generator",
+    "django-stubs>=5.2",
+    "httpx>=0.28",
+    "jinja2>=3.1",
+    "lefthook>=1.11",
+    "pyright[nodejs]>=1.1.405",
+    "pytest>=8.4",
+    "ruff>=0.13",
+    "twine>=6.2",
+]
+docs = ["mkdocs-material>=9.6"]
+
+[tool.uv]
+package = false
+default-groups = ["dev"]
+
+[tool.uv.workspace]
+members = ["packages/*", "tools/*"]
+
+[tool.uv.sources]
+goatseo = { workspace = true }
+goatseo-core = { workspace = true }
+goatseo-schema = { workspace = true }
+goatseo-opengraph = { workspace = true }
+goatseo-twitter = { workspace = true }
+goatseo-seo = { workspace = true }
+goatseo-django = { workspace = true }
+goatseo-fastapi = { workspace = true }
+goatseo-flask = { workspace = true }
+goatseo-schema-generator = { workspace = true }
+
+[tool.ruff]
+target-version = "py314"
+line-length = 100
+extend-exclude = [".typecheck", "tests/typing/fixtures"]
+
+[tool.ruff.lint]
+select = [
+    "A", "ARG", "B", "C4", "DTZ", "E", "F", "FA", "FBT", "I", "ISC", "N", "PGH", "PIE",
+    "PL", "PT", "PTH", "PYI", "RET", "RUF", "S", "SIM", "T20", "TC", "TID", "UP", "W",
+]
+# Pydantic resolves annotations at runtime, so typing-only imports must stay real imports.
+ignore = ["PLR0913", "PLR2004", "TC001", "TC002", "TC003"]
+
+[tool.ruff.lint.per-file-ignores]
+"**/tests/**" = ["S101", "PLC0415", "FBT003"]
+"tools/schema-generator/src/goatseo_schema_generator/cli.py" = ["T201"]
+"scripts/**" = ["S101", "T201"]
+"packages/goatseo-schema/src/goatseo/schema/_types.py" = ["E501", "N801", "N815", "A003"]
+"packages/goatseo-schema/src/goatseo/schema/_enumerations.py" = ["E501", "N801", "N815"]
+
+[tool.ruff.lint.isort]
+known-first-party = ["goatseo", "goatseo_schema_generator"]
+
+[tool.ruff.format]
+docstring-code-format = true
+
+[tool.pyright]
+pythonVersion = "3.14"
+typeCheckingMode = "strict"
+venvPath = "."
+venv = ".venv"
+extraPaths = [".typecheck"]
+include = ["packages", "tools", "tests", "scripts"]
+exclude = ["**/__pycache__", "tests/typing/fixtures", "**/.venv"]
+reportMissingModuleSource = "error"
+reportUnnecessaryTypeIgnoreComment = "error"
+
+[tool.pytest.ini_options]
+addopts = ["--import-mode=importlib", "-ra", "--strict-markers", "--strict-config"]
+testpaths = ["packages", "tools", "tests"]
+filterwarnings = ["error"]
