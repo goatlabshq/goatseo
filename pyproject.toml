@@ -57,6 +57,7 @@ goatseo-schema-generator = { workspace = true }
 [tool.ruff]
 target-version = "py314"
 line-length = 100
+force-exclude = true
 extend-exclude = [".typecheck", "tests/typing/fixtures"]
 
 [tool.ruff.lint]
