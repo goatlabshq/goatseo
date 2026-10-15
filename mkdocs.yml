@@ -26,6 +26,36 @@ theme:
         icon: material/brightness-4
         name: Switch to light mode
 
+plugins:
+  - search
+  - llmstxt:
+      full_output: llms-full.txt
+      markdown_description: >
+        GoatSEO renders the SEO part of an HTML head (title, meta tags, canonical and hreflang
+        links, Open Graph, Twitter/X Cards and Schema.org JSON-LD) from strongly typed Pydantic
+        models. The engine is framework-independent, with thin adapters for Django, FastAPI and
+        Flask. Python 3.14 or newer is required. Install with `pip install goatseo` or
+        `pip install "goatseo[django]"` (also `[fastapi]`, `[flask]`).
+      sections:
+        Getting started:
+          - index.md
+          - getting-started/*.md
+        Guide:
+          - guide/concepts.md
+          - guide/seo.md
+          - guide/opengraph.md
+          - guide/twitter.md
+          - guide/schema-org.md
+          - guide/json-ld.md
+          - guide/configuration.md
+          - guide/customization.md
+        Integrations:
+          - integrations/*.md
+        Topics:
+          - topics/*.md
+        Reference:
+          - reference/*.md
+
 markdown_extensions:
   - admonition
   - attr_list
@@ -35,6 +65,7 @@ markdown_extensions:
   - pymdownx.details
   - pymdownx.highlight:
       anchor_linenums: true
+      pygments_lang_class: true
   - pymdownx.inlinehilite
   - pymdownx.superfences
   - pymdownx.tabbed:
