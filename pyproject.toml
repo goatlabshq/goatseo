@@ -20,18 +20,18 @@ dev = [
     "goatseo-fastapi",
     "goatseo-flask",
     "goatseo-schema-generator",
-    "django-stubs>=5.2",
+    "django-stubs>=6.1",
     "httpx>=0.28",
     "jinja2>=3.1",
-    "lefthook>=1.11",
-    "pyright[nodejs]>=1.1.405",
-    "pytest>=8.4",
-    "ruff>=0.13",
-    "twine>=6.2",
+    "lefthook>=2.2",
+    "pyright[nodejs]>=1.1.414",
+    "pytest>=9.1",
+    "ruff>=0.16",
+    "twine>=7.0",
 ]
 docs = [
     "mkdocs-llmstxt>=0.5.1",
-    "mkdocs-material>=9.6",
+    "mkdocs-material>=9.7",
 ]
 
 [tool.uv]
