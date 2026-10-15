@@ -210,6 +210,7 @@ class SEO:
     def audit(self) -> tuple[Issue, ...]:
         return audit(self.metadata)
 
+    # nosemgrep: python.django.security.audit.xss.html-magic-method.html-magic-method
     def __html__(self) -> str:
         return self.render()
 

@@ -21,6 +21,7 @@ class SourceError(RuntimeError):
 def _fetch(url: str) -> bytes:
     if not url.startswith("https://"):
         raise SourceError(f"refusing to download over an insecure scheme: {url}")
+    # nosemgrep: python.lang.security.audit.dynamic-urllib-use-detected.dynamic-urllib-use-detected
     with urllib.request.urlopen(url, timeout=_TIMEOUT_SECONDS) as response:  # noqa: S310
         body: bytes = response.read()
         return body

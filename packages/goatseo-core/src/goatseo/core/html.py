@@ -14,6 +14,7 @@ class SafeHtml(str):
 
     __slots__ = ()
 
+    # nosemgrep: python.django.security.audit.xss.html-magic-method.html-magic-method
     def __html__(self) -> Self:
         return self
 

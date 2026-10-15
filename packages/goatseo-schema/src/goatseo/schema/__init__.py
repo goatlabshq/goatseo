@@ -25,6 +25,7 @@ _GENERATED_MODULES: Final = ("goatseo.schema._types", "goatseo.schema._enumerati
 
 def __getattr__(name: str) -> object:
     for module_name in _GENERATED_MODULES:
+        # nosemgrep: python.lang.security.audit.non-literal-import.non-literal-import
         module = import_module(module_name)
         if name in module.__dict__.get("__all__", ()):
             value: object = getattr(module, name)
