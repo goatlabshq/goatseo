@@ -4,7 +4,7 @@
 helpers and an optional middleware.
 
 ```bash
-pip install goatseo-django
+pip install "goatseo[django]"
 ```
 
 ## Settings

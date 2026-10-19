@@ -3,7 +3,7 @@
 `goatseo-flask` is a standard Flask extension with request-scoped state and a Jinja global.
 
 ```bash
-pip install goatseo-flask
+pip install "goatseo[flask]"
 ```
 
 ## Setup

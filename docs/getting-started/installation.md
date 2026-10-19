@@ -15,27 +15,34 @@ Open Graph and Twitter/X packages. It never installs a web framework.
 
 ## Framework integrations
 
-Install the adapter for your framework, either directly or through an extra:
+Install the adapter for your framework through its extra:
 
 === "Django"
 
     ```bash
-    pip install goatseo-django      # or: pip install "goatseo[django]"
+    pip install "goatseo[django]"
     ```
 
 === "FastAPI"
 
     ```bash
-    pip install goatseo-fastapi     # or: pip install "goatseo[fastapi]"
+    pip install "goatseo[fastapi]"
     ```
 
 === "Flask"
 
     ```bash
-    pip install goatseo-flask       # or: pip install "goatseo[flask]"
+    pip install "goatseo[flask]"
     ```
 
 Each adapter depends on `goatseo-seo` and its framework only.
+
+!!! note "Install the extra, not the adapter alone"
+
+    `goatseo-django`, `goatseo-fastapi` and `goatseo-flask` do not install the `goatseo`
+    distribution, which owns `goatseo/__init__.py`. With an adapter alone,
+    `from goatseo import Metadata` raises `ImportError`; import from `goatseo.core` and
+    `goatseo.seo` instead, or install the extra as shown above.
 
 ## Individual packages
 

@@ -4,7 +4,7 @@
 FastAPI or Starlette.
 
 ```bash
-pip install goatseo-fastapi
+pip install "goatseo[fastapi]"
 ```
 
 ## Dependency

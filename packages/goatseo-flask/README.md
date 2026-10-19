@@ -3,7 +3,7 @@
 Flask integration for GoatSEO: the `SEOExtension`, request-scoped state through `get_seo()` and a `goatseo_head()` Jinja global.
 
 ```bash
-pip install goatseo-flask
+pip install "goatseo[flask]"
 ```
 
 ```python

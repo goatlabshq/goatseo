@@ -3,7 +3,7 @@
 FastAPI integration for GoatSEO: a per-request `SEO` dependency and a Jinja2 `goatseo_head` helper.
 
 ```bash
-pip install goatseo-fastapi
+pip install "goatseo[fastapi]"
 ```
 
 ```python
