@@ -2,7 +2,10 @@ from types import ModuleType
 
 import pytest
 from django.apps import apps
+from django.core import checks
 from django.core.exceptions import ImproperlyConfigured
+from django.core.management import call_command
+from django.core.management.base import SystemCheckError
 from django.http import HttpRequest, HttpResponse
 from django.template import TemplateSyntaxError, engines
 from django.test import Client, RequestFactory, override_settings
@@ -115,6 +118,19 @@ def test_defaults_are_reread_when_the_setting_changes() -> None:
     with override_settings(GOATSEO_DEFAULTS=Metadata(site_name="Second")):
         assert get_seo(RequestFactory().get("/")).metadata.site_name == "Second"
     assert get_seo(RequestFactory().get("/")).metadata.site_name is None
+
+
+def test_system_check_accepts_valid_or_missing_defaults() -> None:
+    assert checks.run_checks(tags=["goatseo"]) == []
+    with override_settings(GOATSEO_DEFAULTS=Metadata(site_name="Example")):
+        assert checks.run_checks(tags=["goatseo"]) == []
+
+
+def test_system_check_reports_invalid_defaults() -> None:
+    with override_settings(GOATSEO_DEFAULTS={"title": "x"}):
+        assert [message.id for message in checks.run_checks(tags=["goatseo"])] == ["goatseo.E001"]
+        with pytest.raises(SystemCheckError, match="GOATSEO_DEFAULTS"):
+            call_command("check", tag=["goatseo"])
 
 
 def test_invalid_defaults_setting_is_rejected() -> None:

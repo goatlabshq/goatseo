@@ -39,9 +39,9 @@ MIDDLEWARE = [
 GOATSEO_DEFAULTS = Metadata(site_name="Example", title_template="{title} | Example")
 ```
 
-`GOATSEO_DEFAULTS` must be a `Metadata` instance (anything else raises
-`ImproperlyConfigured`). It is read once and re-read when a test overrides it with
-`override_settings`.
+`GOATSEO_DEFAULTS` must be a `Metadata` instance: `manage.py check` reports anything else as
+`goatseo.E001`, and `get_seo` raises `ImproperlyConfigured`. It is read once and re-read when a
+test overrides it with `override_settings`.
 
 ## Views
 
