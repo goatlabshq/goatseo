@@ -15,4 +15,4 @@ def test_django_project_suite_passes() -> None:
         check=False,
     )
     assert result.returncode == 0, result.stderr
-    assert "Ran 8 tests" in result.stderr
+    assert "Ran 9 tests" in result.stderr

@@ -11,11 +11,13 @@ XSS = "</script><script>alert(1)</script>"
 JSONLD = re.compile(r'<script type="application/ld\+json">(.*?)</script>', re.DOTALL)
 
 
-def create_article(slug: str, title: str, *, draft: bool = False) -> Article:
+def create_article(
+    slug: str, title: str, *, draft: bool = False, summary: str | None = None
+) -> Article:
     return Article.objects.create(
         title=title,
         slug=slug,
-        summary=f"About {slug}.",
+        summary=f"About {slug}." if summary is None else summary,
         author="Jane Doe",
         published=PUBLISHED,
         draft=draft,
@@ -28,6 +30,7 @@ class ArticlePageTests(TestCase):
         create_article("hello-world", "Hello World")
         create_article("draft", "Draft", draft=True)
         create_article("xss", XSS)
+        create_article("blank", "Blank", summary="")
 
     def get_html(self, url: str, **headers: str) -> str:
         response = self.client.get(url, headers=headers)
@@ -77,6 +80,11 @@ class ArticlePageTests(TestCase):
             "/articles/hello-world/", host="blog.example", x_forwarded_proto="https"
         )
         assert '<link rel="canonical" href="https://blog.example/articles/hello-world/">' in html
+
+    def test_blank_model_field_is_omitted(self) -> None:
+        html = self.get_html("/articles/blank/")
+        assert "<title>Blank | Goat Blog</title>" in html
+        assert '<meta name="description"' not in html
 
     def test_missing_article_is_not_found(self) -> None:
         assert self.client.get("/articles/missing/").status_code == 404

@@ -20,7 +20,7 @@ class Article(models.Model):
     def seo_metadata(self) -> Metadata:
         return Metadata(
             title=self.title,
-            description=self.summary,
+            description=self.summary or None,
             canonical=self.get_absolute_url(),
-            author=self.author,
+            author=self.author or None,
         )
