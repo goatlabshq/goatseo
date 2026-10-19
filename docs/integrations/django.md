@@ -98,8 +98,14 @@ class Article(models.Model):
     summary = models.TextField()
 
     def seo_metadata(self) -> Metadata:
-        return Metadata(title=self.title, description=self.summary)
+        return Metadata(title=self.title, description=self.summary or None)
 ```
+
+!!! warning "Blank fields"
+
+    `Metadata` rejects empty strings, and Django stores `""` in a `CharField` or `TextField`
+    left blank. Pass `value or None` for any field that can be blank, otherwise the page
+    raises a `ValidationError` while rendering.
 
 ## Templates
 
