@@ -9,7 +9,7 @@ from django.test import Client, RequestFactory, override_settings
 from django.urls import path
 from django.views.generic import TemplateView
 
-from goatseo.core import Metadata
+from goatseo.core import Metadata, Robots
 from goatseo.django import SEOMixin, get_seo, seo_defaults
 from goatseo.django.context_processors import seo as seo_processor
 from goatseo.schema import Article, Person
@@ -59,6 +59,14 @@ def plain(request: HttpRequest) -> HttpResponse:
     return HttpResponse("ok")
 
 
+def templated(request: HttpRequest) -> HttpResponse:
+    return HttpResponse(render("<p>No GoatSEO tag</p>", request))
+
+
+def untouched(_request: HttpRequest) -> HttpResponse:
+    return HttpResponse("ok")
+
+
 def xss(request: HttpRequest) -> HttpResponse:
     get_seo(request).title(XSS).description('" onload="alert(1)')
     return HttpResponse(render("{% load goatseo %}{% goatseo_head %}", request))
@@ -71,6 +79,8 @@ URLS.__dict__["urlpatterns"] = [
     path("noindex", noindex),
     path("explicit", explicit_header),
     path("plain", plain),
+    path("templated", templated),
+    path("untouched", untouched),
     path("xss", xss),
 ]
 
@@ -175,6 +185,12 @@ def test_middleware_keeps_an_existing_header(client: Client) -> None:
 @override_settings(ROOT_URLCONF=URLS)
 def test_middleware_skips_pages_without_directives(client: Client) -> None:
     assert "X-Robots-Tag" not in client.get("/plain").headers
+
+
+@override_settings(ROOT_URLCONF=URLS, GOATSEO_DEFAULTS=Metadata(robots=Robots(index=False)))
+def test_middleware_applies_site_robots_to_templated_responses(client: Client) -> None:
+    assert client.get("/templated").headers["X-Robots-Tag"] == "noindex"
+    assert "X-Robots-Tag" not in client.get("/untouched").headers
 
 
 @override_settings(ROOT_URLCONF=URLS)

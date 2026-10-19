@@ -130,6 +130,7 @@ holds an `SEO` object, otherwise `get_seo(request)`. Relative URLs are resolved 
 
 ## Middleware
 
-`GoatSEOMiddleware` is optional. When a view configured robots directives, it copies them to
-the `X-Robots-Tag` header, unless the response already has one. It does nothing for requests
-that never touched `get_seo`.
+`GoatSEOMiddleware` is optional. It copies the resolved robots directives to the
+`X-Robots-Tag` header, unless the response already has one. It does nothing for requests that
+never touched `get_seo`, but the context processor calls it on every template render: with
+`robots` in `GOATSEO_DEFAULTS`, every templated response gets the header, the admin included.
