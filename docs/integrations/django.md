@@ -57,8 +57,7 @@ from goatseo.schema import Article as ArticleSchema, Person
 def article_detail(request, slug):
     article = get_object_or_404(Article, slug=slug)
     seo = get_seo(request)
-    seo.title(article.title)
-    seo.description(article.summary)
+    seo.from_object(article)
     seo.schema(ArticleSchema(headline=article.title, author=Person(name=article.author_name)))
     return render(request, "article.html", {"article": article})
 ```
@@ -93,19 +92,19 @@ class ArticleDetail(SEOMixin, DetailView):
 ```
 
 ```python
+from goatseo.django import model_metadata
+
+
 class Article(models.Model):
     title = models.CharField(max_length=200)
-    summary = models.TextField()
+    summary = models.TextField(blank=True)
 
     def seo_metadata(self) -> Metadata:
-        return Metadata(title=self.title, description=self.summary or None)
+        return model_metadata(title=self.title, description=self.summary)
 ```
 
-!!! warning "Blank fields"
-
-    `Metadata` rejects empty strings, and Django stores `""` in a `CharField` or `TextField`
-    left blank. Pass `value or None` for any field that can be blank, otherwise the page
-    raises a `ValidationError` while rendering.
+`model_metadata` builds a `Metadata` where blank strings, which Django stores for empty fields,
+mean "not set": an empty summary falls back to a lower layer instead of failing validation.
 
 ## Templates
 

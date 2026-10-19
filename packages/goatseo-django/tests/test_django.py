@@ -8,9 +8,10 @@ from django.template import TemplateSyntaxError, engines
 from django.test import Client, RequestFactory, override_settings
 from django.urls import path
 from django.views.generic import TemplateView
+from pydantic import ValidationError
 
 from goatseo.core import Metadata, Robots
-from goatseo.django import SEOMixin, get_seo, seo_defaults
+from goatseo.django import SEOMixin, get_seo, model_metadata, seo_defaults
 from goatseo.django.context_processors import seo as seo_processor
 from goatseo.schema import Article, Person
 
@@ -199,3 +200,17 @@ def test_untrusted_values_are_escaped(client: Client) -> None:
     assert "<script>" not in html
     assert "<title>&lt;/title&gt;&lt;script&gt;alert(1)&lt;/script&gt;</title>" in html
     assert 'content="&quot; onload=&quot;alert(1)"' in html
+
+
+def test_model_metadata_treats_blank_fields_as_absent() -> None:
+    metadata = model_metadata(
+        title="Boots", description="", author="   ", keywords=["boots", "", " "]
+    )
+    assert metadata == Metadata(title="Boots", keywords=["boots"])
+
+
+def test_model_metadata_keeps_the_core_contract_strict() -> None:
+    with pytest.raises(ValidationError):
+        Metadata(description="")
+    with pytest.raises(ValidationError):
+        model_metadata(canonical="javascript:alert(1)")

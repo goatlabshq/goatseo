@@ -110,6 +110,7 @@ Methods are listed in [the SEO builder guide](../guide/seo.md).
 | `request_context(request)` | `RequestContext` from an `HttpRequest` |
 | `SEOMixin` | Class-based view mixin |
 | `seo_defaults(**fields)` | Function-based view decorator |
+| `model_metadata(**fields)` | `Metadata` for a model, with blank fields treated as unset |
 | `goatseo.django.context_processors.seo` | Adds `seo` to template contexts |
 | `goatseo.django.middleware.GoatSEOMiddleware` | `X-Robots-Tag` header |
 | `{% goatseo_head %}`, `{% goatseo_jsonld %}` | Template tags (`{% load goatseo %}`) |
