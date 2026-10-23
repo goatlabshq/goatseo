@@ -48,6 +48,18 @@ Metadata(title="Sets {a, b}", title_template="{title} | Example").full_title
 # 'Sets {a, b} | Example'
 ```
 
+The template is independent of `site_name`: GoatSEO never inserts the site name into the
+title, so write it into the template yourself. Without a template the title is used as is,
+which is the same as `"{title}"`. Empty strings are rejected for both `title_template` and
+`site_name`, so a site name read from an optional setting must become `None`, not `""`:
+
+```python
+SITE_DEFAULTS = Metadata(
+    site_name=APP_NAME or None,
+    title_template=f"{{title}} | {APP_NAME}" if APP_NAME else None,
+)
+```
+
 ## Robots
 
 `Robots` fields are tri-state: `True`, `False` or `None` (not specified).

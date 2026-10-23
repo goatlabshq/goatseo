@@ -133,3 +133,8 @@ holds an `SEO` object, otherwise `get_seo(request)`. Relative URLs are resolved 
 `X-Robots-Tag` header, unless the response already has one. It does nothing for requests that
 never touched `get_seo`, but the context processor calls it on every template render: with
 `robots` in `GOATSEO_DEFAULTS`, every templated response gets the header, the admin included.
+
+Because an existing header is kept, an environment middleware that sends
+`X-Robots-Tag: noindex, nofollow` on a staging server keeps working next to it: a header set
+by a view or an inner middleware is never replaced, and an outer middleware handles the
+response after `GoatSEOMiddleware`, so it can still overwrite the header.
