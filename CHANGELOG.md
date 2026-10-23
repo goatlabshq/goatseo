@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.1](https://github.com/goatlabshq/goatseo/compare/v0.1.0...v0.1.1) (2026-10-23)
+
+
+### Documentation
+
+* clarify title_template, site_name and X-Robots-Tag precedence ([5eeb677](https://github.com/goatlabshq/goatseo/commit/5eeb677ba252966257d3cc3b42ba44963a218169))
+
 ## 0.1.0 (2026-10-19)
 
 
