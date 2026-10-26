@@ -1,6 +1,6 @@
 [project]
 name = "goatseo"
-version = "0.1.0" # x-release-please-version
+version = "0.1.1" # x-release-please-version
 description = "The type-safe SEO toolkit for Python."
 readme = "README.md"
 license = "MIT"
@@ -18,13 +18,13 @@ classifiers = [
     "Typing :: Typed",
 ]
 dependencies = [
-    "goatseo-seo==0.1.0", # x-release-please-version
+    "goatseo-seo==0.1.1", # x-release-please-version
 ]
 
 [project.optional-dependencies]
-django = ["goatseo-django==0.1.0"] # x-release-please-version
-fastapi = ["goatseo-fastapi==0.1.0"] # x-release-please-version
-flask = ["goatseo-flask==0.1.0"] # x-release-please-version
+django = ["goatseo-django==0.1.1"] # x-release-please-version
+fastapi = ["goatseo-fastapi==0.1.1"] # x-release-please-version
+flask = ["goatseo-flask==0.1.1"] # x-release-please-version
 
 [project.urls]
 Homepage = "https://github.com/goatlabshq/goatseo"

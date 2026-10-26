@@ -1,6 +1,6 @@
 [project]
 name = "goatseo-twitter"
-version = "0.1.0" # x-release-please-version
+version = "0.1.1" # x-release-please-version
 description = "Typed Twitter/X Cards models and renderer for GoatSEO."
 readme = "README.md"
 license = "MIT"
@@ -18,7 +18,7 @@ classifiers = [
     "Typing :: Typed",
 ]
 dependencies = [
-    "goatseo-core==0.1.0", # x-release-please-version
+    "goatseo-core==0.1.1", # x-release-please-version
     "pydantic>=2.12",
 ]
 
