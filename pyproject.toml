@@ -37,6 +37,7 @@ docs = [
 [tool.uv]
 package = false
 exclude-newer = "7 days"
+exclude-newer-package = { certifi = "2026-10-21T00:00:00Z" }
 default-groups = ["dev"]
 
 [tool.uv.workspace]
