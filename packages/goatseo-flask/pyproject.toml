@@ -1,6 +1,6 @@
 [project]
 name = "goatseo-flask"
-version = "0.1.0" # x-release-please-version
+version = "0.1.1" # x-release-please-version
 description = "Flask integration for GoatSEO."
 readme = "README.md"
 license = "MIT"
@@ -19,7 +19,7 @@ classifiers = [
     "Typing :: Typed",
 ]
 dependencies = [
-    "goatseo-seo==0.1.0", # x-release-please-version
+    "goatseo-seo==0.1.1", # x-release-please-version
     "flask>=3.1",
 ]
 
