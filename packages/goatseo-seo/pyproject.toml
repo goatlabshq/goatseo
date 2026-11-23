@@ -1,6 +1,6 @@
 [project]
 name = "goatseo-seo"
-version = "0.1.0" # x-release-please-version
+version = "0.1.1" # x-release-please-version
 description = "High-level SEO API combining metadata, Open Graph, Twitter Cards and Schema.org."
 readme = "README.md"
 license = "MIT"
@@ -18,10 +18,10 @@ classifiers = [
     "Typing :: Typed",
 ]
 dependencies = [
-    "goatseo-core==0.1.0", # x-release-please-version
-    "goatseo-schema==0.1.0", # x-release-please-version
-    "goatseo-opengraph==0.1.0", # x-release-please-version
-    "goatseo-twitter==0.1.0", # x-release-please-version
+    "goatseo-core==0.1.1", # x-release-please-version
+    "goatseo-schema==0.1.1", # x-release-please-version
+    "goatseo-opengraph==0.1.1", # x-release-please-version
+    "goatseo-twitter==0.1.1", # x-release-please-version
 ]
 
 [project.urls]
