@@ -408,7 +408,7 @@ wheels = [
 
 [[package]]
 name = "goatseo"
-version = "0.1.0"
+version = "0.1.1"
 source = { editable = "packages/goatseo" }
 dependencies = [
     { name = "goatseo-seo" },
@@ -436,7 +436,7 @@ provides-extras = ["django", "fastapi", "flask"]
 
 [[package]]
 name = "goatseo-core"
-version = "0.1.0"
+version = "0.1.1"
 source = { editable = "packages/goatseo-core" }
 dependencies = [
     { name = "pydantic" },
@@ -447,7 +447,7 @@ requires-dist = [{ name = "pydantic", specifier = ">=2.12" }]
 
 [[package]]
 name = "goatseo-django"
-version = "0.1.0"
+version = "0.1.1"
 source = { editable = "packages/goatseo-django" }
 dependencies = [
     { name = "django" },
@@ -462,7 +462,7 @@ requires-dist = [
 
 [[package]]
 name = "goatseo-fastapi"
-version = "0.1.0"
+version = "0.1.1"
 source = { editable = "packages/goatseo-fastapi" }
 dependencies = [
     { name = "fastapi" },
@@ -477,7 +477,7 @@ requires-dist = [
 
 [[package]]
 name = "goatseo-flask"
-version = "0.1.0"
+version = "0.1.1"
 source = { editable = "packages/goatseo-flask" }
 dependencies = [
     { name = "flask" },
@@ -492,7 +492,7 @@ requires-dist = [
 
 [[package]]
 name = "goatseo-opengraph"
-version = "0.1.0"
+version = "0.1.1"
 source = { editable = "packages/goatseo-opengraph" }
 dependencies = [
     { name = "goatseo-core" },
@@ -507,7 +507,7 @@ requires-dist = [
 
 [[package]]
 name = "goatseo-schema"
-version = "0.1.0"
+version = "0.1.1"
 source = { editable = "packages/goatseo-schema" }
 dependencies = [
     { name = "goatseo-core" },
@@ -533,7 +533,7 @@ requires-dist = [{ name = "ruff", specifier = ">=0.13" }]
 
 [[package]]
 name = "goatseo-seo"
-version = "0.1.0"
+version = "0.1.1"
 source = { editable = "packages/goatseo-seo" }
 dependencies = [
     { name = "goatseo-core" },
@@ -552,7 +552,7 @@ requires-dist = [
 
 [[package]]
 name = "goatseo-twitter"
-version = "0.1.0"
+version = "0.1.1"
 source = { editable = "packages/goatseo-twitter" }
 dependencies = [
     { name = "goatseo-core" },
@@ -567,7 +567,7 @@ requires-dist = [
 
 [[package]]
 name = "goatseo-workspace"
-version = "0.1.0"
+version = "0.1.1"
 source = { virtual = "." }
 
 [package.dev-dependencies]
