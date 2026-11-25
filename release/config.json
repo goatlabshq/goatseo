@@ -68,7 +68,8 @@
           "path": "uv.lock",
           "jsonpath": "$.package[?(@.name.value=='goatseo-workspace')].version"
         }
-      ]
+      ],
+      "release-as": "0.1.2"
     }
   }
 }
