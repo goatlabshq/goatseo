@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.2](https://github.com/goatlabshq/goatseo/compare/v0.1.1...v0.1.2) (2026-11-25)
+
+
+### Bug Fixes
+
+* **deps:** upgrade locked dependencies ([#10](https://github.com/goatlabshq/goatseo/issues/10)) ([bb6a285](https://github.com/goatlabshq/goatseo/commit/bb6a285862f19332e9da13424348afeef191af29))
+
 ## [0.1.1](https://github.com/goatlabshq/goatseo/compare/v0.1.0...v0.1.1) (2026-11-23)
 
 
